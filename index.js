@@ -6,7 +6,7 @@ const bodyParser = require('body-parser');
 
 const keys = require('./config/keys');
 require('./services/passport');
-// mongodb://localhost:27017/FullStack
+
 mongoose.connect(keys.mongoURI);
 
 const app = express();
@@ -25,6 +25,7 @@ app.use(passport.session());
 
 require('./routes/authRoutes')(app);
 require('./routes/billingRoutes')(app);
+require('./routes/surveyRoutes')(app);
 
 if(process.env.NODE_ENV === 'production'){
     // EXPRESS SHOULD SEVRE PRODUCTION ASSETS

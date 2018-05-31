@@ -4,9 +4,13 @@ import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
 import { createStore, applyMiddleware } from 'redux';
 import reduxThunk from 'redux-thunk';
+import axios from 'axios';
 
 import reducers from './reducers';
 import App from './components/App';
+
+// Dev only helpers
+window.axios = axios;
 
 const store = createStore(
   reducers, 
